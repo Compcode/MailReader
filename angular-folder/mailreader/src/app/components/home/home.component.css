@@ -1,0 +1,30 @@
+body{
+    background-color: #f5f4f4!important;
+    font-family: 'Poppins',sans-serif!important;
+}
+.example-container {
+    /* display: grid; */
+    /* position: absolute; */
+    /* top: 4rem;
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    background: #eee; 
+    padding: 1rem; */
+    /* overflow: hidden;  */
+    /* grid-template-columns: 1fr 2fr; */
+    
+  }
+  .mat-drawer-inner-container{
+    overflow: hidden;
+  }
+  .mat-drawer{
+    /* padding: 1rem; */
+    width:max-content
+  }
+  .mail-contents{
+    
+    margin-left: 16rem;
+    padding:2rem;
+  }
+  

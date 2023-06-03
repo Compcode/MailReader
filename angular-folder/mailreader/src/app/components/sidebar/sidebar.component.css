@@ -1,0 +1,28 @@
+/* .sidebar-component{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10rem;
+    
+} */
+.sidebar-component:hover{
+    cursor: pointer;
+}
+.mat-mdc-list-base{
+    background-color: #1d2d44;
+    /* color: white; */
+    /* margin:1rem; */
+     position: absolute;
+    top: 0;
+    bottom: 0; 
+    left: 0;
+    width:16rem;
+    /* right: 0; */
+}
+.listitem{
+    display: flex;
+    justify-content: space-between;
+    /* border-bottom: 1px solid black; */
+    text-decoration: none;
+    color: white;
+}
