@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.xoriant.mailReader.modal.ChartData;
 
@@ -17,5 +18,9 @@ public interface ChartDataService {
 	List<ChartData> storeData();
 
 	List<ChartData> getDataBetweenDates(LocalDateTime fromDate, LocalDateTime toDate);
+	
+	// Method to save the file to a specific path and then read it
+	public String uploadFiles(MultipartFile[] files);
 
+	public String getFileName();
 }

@@ -1,5 +1,6 @@
 package com.xoriant.mailReader.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -16,6 +17,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.pff.PSTException;
 import com.pff.PSTFile;
@@ -31,7 +34,9 @@ public class ChartDataServiceImpl implements ChartDataService {
 	@Autowired
 	private ChartDataRepository repository;
 
-	private static final String fileName = "D:\\Outlook PST/Xoriant-Rashmi.pst";
+	private String uploadedFileName;
+	private String fName = "";
+	private final String fileName = fName + uploadedFileName;
 	private PSTFile pstFile;
 
 	@Override
@@ -170,5 +175,35 @@ public class ChartDataServiceImpl implements ChartDataService {
 		}
 		return intVal;
 	}
+
+	@Override
+	public String uploadFiles(MultipartFile[] files) {
+		String uploadPath = "D:\\PST Files"; // Replace with your desired folder path
+		fName = uploadPath;
+
+        for (MultipartFile file : files) {
+            String originalFileName = file.getOriginalFilename();
+            uploadedFileName = originalFileName; // Save the file name to the variable
+
+            String fileName = System.currentTimeMillis() + "_" + originalFileName; // Appending a timestamp to avoid overwriting files with the same name
+
+            try {
+                file.transferTo(new File(uploadPath + fileName));
+            } 
+            catch (IOException e) {
+                e.printStackTrace();
+                // Handle the file upload error
+            }
+        }
+        return "";
+	}
+
+	@Override
+	public String getFileName() {
+		return uploadedFileName;
+	}
+	
+	
+	
 
 }
