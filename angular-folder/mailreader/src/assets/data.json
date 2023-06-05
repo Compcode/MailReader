@@ -1,0 +1,35 @@
+[  
+  {  
+    "id": 1,  
+    "name": "email1",  
+    "data": {
+      "java" : 10,
+			"angular" : 20,
+			"react" : 30,
+			"python": 40
+      },
+    "date":"27-05-2023"
+  },  
+  {  
+    "id": 2,  
+    "name": "email2",  
+    "data": {
+      "java" : 20,
+      "angular" : 30,
+      "react" : 40,
+      "python" : 10
+    },
+    "date":"29-05-2023"
+  },
+  {  
+    "id": 3,  
+    "name": "email3",  
+    "data": {
+      "java": 30,
+			"angular": 40,
+			"react": 10,
+			"python" : 20
+    },
+    "date":"29-05-2023"
+  }
+]

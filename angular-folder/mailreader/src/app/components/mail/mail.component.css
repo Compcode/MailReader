@@ -1,0 +1,25 @@
+.table-chart{
+    display: flex;
+    flex-direction: row;
+}
+.table{
+    flex:1;
+    margin-right: 10px;
+}
+.chart{
+    flex:1;
+    margin-left: 10px;
+}
+.mat-mdc-table {
+    box-shadow: none;
+}
+.mdc-data-table__cell{
+    text-align: center;
+}
+.mdc-data-table__header-cell{
+    text-align: center;
+}
+.mail-header{
+    display:flex;
+    justify-content: space-between;
+}

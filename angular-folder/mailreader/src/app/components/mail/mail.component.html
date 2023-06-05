@@ -1,0 +1,23 @@
+
+<div class="mail-header">
+    
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="selectedView">
+        <mat-button-toggle value="tables">Tables</mat-button-toggle>
+        <mat-button-toggle value="charts">Chart</mat-button-toggle>
+        
+    </mat-button-toggle-group>
+    <input type="file" (change)="onFileChange($event)" accept=".pst" />
+    <button mat-raised-button color="primary" (click)="uploadFile()">Upload File</button>
+    <!-- <input type="file" #fileInput style="display: none" (change)="handleFileUpload($event.target.files)"> -->
+</div>
+<div class="table-chart">
+    <div class="table" *ngIf="selectedView === 'tables'">
+        <app-table></app-table>
+    </div>
+    <div class="chart" *ngIf="selectedView === 'charts'">
+        <app-chart [id]="id"></app-chart>
+    </div>
+</div>
+<!-- <ul *ngFor="let data of jsonData?.email"> -->
+    <!-- <li>{{data.sub1}}</li> -->
+<!-- </ul> -->
