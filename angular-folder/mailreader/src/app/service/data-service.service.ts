@@ -11,10 +11,11 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
   private jsonData: any;
+private baseUrl:string='http://localhost:8080';
 
   setJsonData() : Promise<Email[]>{
     return new Promise<Email[]>((resolve,reject)=>{
-      this.http.get<Email[]>('assets/data.json').pipe(
+      this.http.get<Email[]>(`${this.baseUrl}/api/v1/chartdata/`).pipe(
         catchError(error => {
           console.error('An error occurred:', error);
           return throwError('Something went wrong.');

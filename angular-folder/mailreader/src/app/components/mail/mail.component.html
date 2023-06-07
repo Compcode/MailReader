@@ -6,15 +6,16 @@
         <mat-button-toggle value="charts">Chart</mat-button-toggle>
         
     </mat-button-toggle-group>
-    <button mat-raised-button color="primary" >Upload File</button>
-    <!-- <input type="file" #fileInput style="display: none" (change)="handleFileUpload($event.target.files)"> -->
+    <!-- <input type="file" (change)="onFileChange($event)" accept=".pst" />
+    <button mat-raised-button color="primary" (click)="uploadFile()">Upload File</button> -->
+    
 </div>
 <div class="table-chart">
     <div class="table" *ngIf="selectedView === 'tables'">
         <app-table></app-table>
     </div>
     <div class="chart" *ngIf="selectedView === 'charts'">
-        <app-chart [id]="id"></app-chart>
+        <app-chart></app-chart>
     </div>
 </div>
 <!-- <ul *ngFor="let data of jsonData?.email"> -->

@@ -3,8 +3,8 @@
 <mat-list role="list"> 
     <mat-list-item  *ngFor="let data of emailData">
         <a [routerLink]="['showchart',data?.id]" class="listitem">
-        <span>{{data?.name}}</span>
-        <span>{{data?.date}}</span>
+        <span>{{data?.senderName }}</span>
+        <span>{{data?.date | date:'dd/MM/yyyy'}}</span>
         </a>
     </mat-list-item>
 </mat-list>

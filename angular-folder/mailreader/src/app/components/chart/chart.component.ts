@@ -18,7 +18,7 @@ export class ChartComponent implements OnInit{
   allJsonData:Email[]=[];
   public chart: any;
   constructor(private route: ActivatedRoute,private dataService:DataService) { }
-  @Input() id!: number;
+  // @Input() id!: number;
   // ngOnInit() {
   //   this.jsonData=this.dataService.getJsonById(this.id);
   //   console.log(Chart);
@@ -83,8 +83,8 @@ export class ChartComponent implements OnInit{
     this.chart=new Chart('myChart',{
       type:'line',
       data: {
-        labels: this.allJsonData.map((item: any) => item.date),
-        datasets: Object.keys(this.allJsonData[0].data).map((key: string) => ({
+        labels: this.allJsonData.map((item: any) => item.date ),
+        datasets: Object.keys(this.allJsonData[0].data).slice(1,5).map((key: string) => ({
           label: key,
           data: this.allJsonData.map((item: any) => item.data[key]),
         })),
@@ -95,7 +95,7 @@ export class ChartComponent implements OnInit{
           y: {
             // ticks: {
               beginAtZero: true,
-              max: 110 // Set the maximum value of the y-axis to 100
+              max: 1100 // Set the maximum value of the y-axis to 100
             // }
           }
         }

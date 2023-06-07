@@ -20,7 +20,7 @@ export class TableComponent implements OnInit{
     await this.getData();
     // this.displayedColumns=[...Object.keys(this.allJsonData.data)];
     this.dataSource=this.allJsonData;
-    this.displayedColumns=Object.keys(this.allJsonData[0].data)
+    this.displayedColumns=Object.keys(this.allJsonData[0].data).slice(1,5)
     console.log(this.dataSource);
     console.log(this.displayedColumns)
   }
