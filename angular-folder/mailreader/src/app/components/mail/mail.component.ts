@@ -40,6 +40,7 @@ export class MailComponent  implements OnInit{
 
   onFileChange(event: any) : void {
     this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile)
   }
 
   uploadFile(): void {
@@ -50,6 +51,7 @@ export class MailComponent  implements OnInit{
 
     const uploadData = new FormData();
     uploadData.append('file', this.selectedFile, this.selectedFile.name);
+    console.log(uploadData)
 
     this.http.post('http://localhost:8080/api/v1/chartdata/save/file', uploadData).subscribe(
       response => {
