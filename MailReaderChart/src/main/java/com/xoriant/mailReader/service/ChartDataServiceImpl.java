@@ -16,6 +16,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,7 +38,8 @@ public class ChartDataServiceImpl implements ChartDataService {
 
 	private String uploadedFileName;
 	private String fName = "";
-	private final String fileName = fName + uploadedFileName;
+	//fName + uploadedFileName
+	private final String fileName = "D:/Outlook/Dsouza_Neil.pst";
 	private PSTFile pstFile;
 
 	@Override
@@ -177,8 +180,8 @@ public class ChartDataServiceImpl implements ChartDataService {
 	}
 
 	@Override
-	public String uploadFiles(MultipartFile[] files) {
-		String uploadPath = "D:\\PST Files"; // Replace with your desired folder path
+	public ResponseEntity<String> uploadFiles(MultipartFile[] files) {
+		String uploadPath = "D:\\PST_Files"; // Replace with your desired folder path
 		fName = uploadPath;
 
         for (MultipartFile file : files) {
@@ -195,7 +198,7 @@ public class ChartDataServiceImpl implements ChartDataService {
                 // Handle the file upload error
             }
         }
-        return "";
+        return ResponseEntity.status(HttpStatus.OK).body("File uploaded successfully.");
 	}
 
 	@Override

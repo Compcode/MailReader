@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,8 +56,8 @@ public class ChartDataResource {
 	//saving .pst file to specified folder then reading it
 	
 	@PostMapping("/save/file")
-    public String uploadFiles(@RequestParam("files") MultipartFile[] files) {
-        return service.uploadFiles(files);
+    public ResponseEntity<String> uploadFiles(@RequestParam("file") MultipartFile[] files) {
+        return service.uploadFiles(files); 
     }
 
     @GetMapping("/uploadedFileName")
